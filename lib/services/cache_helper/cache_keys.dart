@@ -1,0 +1,1 @@
+const String CACHE_KEY_NAMEOFVARIABLE='test';
