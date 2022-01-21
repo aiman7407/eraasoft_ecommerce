@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-class AppConstants{
+class AppImages{
 
  static late AssetImage logoImage;
  static late AssetImage onboardingImage1;
@@ -11,5 +11,8 @@ class AppConstants{
  static late AssetImage googleImage;
  static late AssetImage aboutUsImage;
  static late AssetImage emptyCart;
+ static late AssetImage emptyWishlist;
+ static late AssetImage mapsImage;
+ static late AssetImage loadingGigs;
 
 }

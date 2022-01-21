@@ -1,4 +1,5 @@
 import 'package:eraasoft_ecommerce/core/components/space.dart';
+import 'package:eraasoft_ecommerce/core/utils/size_config.dart';
 import 'package:eraasoft_ecommerce/src/app_consts.dart';
 import 'package:eraasoft_ecommerce/src/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +14,9 @@ class AuthHeader extends StatelessWidget {
     return Column(
       children: [
         Image.asset(
-          AppConstants.logoImage.assetName,
+          AppImages.logoImage.assetName,
           width: double.infinity,
+          height:SizeConfig.defaultSize!*26.5 ,
         ),
          Text(
           isRegister?

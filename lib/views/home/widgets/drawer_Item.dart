@@ -11,11 +11,22 @@ class DrawerItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap:function ,
-      child:  ListTile(
-        leading: Icon(iconData),
-        title: Text(
-          text,
-        ),
+      child:  Column(
+        children: [
+          ListTile(
+            leading: Icon(iconData),
+            title: Text(
+              text,
+            ),
+          ),
+          const Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Divider(
+              height: 10,
+
+            ),
+          )
+        ],
       ),
     );
   }

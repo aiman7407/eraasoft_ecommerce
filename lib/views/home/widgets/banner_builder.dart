@@ -16,6 +16,7 @@ class BannerBuilder extends StatelessWidget {
             .map<Widget>((e) => Image(
           image: NetworkImage(e),
           width: double.infinity,
+          height: SizeConfig.defaultSize!*17,
           fit: BoxFit.fill,
         ))
             .toList(),

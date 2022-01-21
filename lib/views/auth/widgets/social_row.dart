@@ -9,19 +9,19 @@ class SocialRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SocialIcon(
-          socialName: AppConstants.facebookImage.assetName,
+          socialName: AppImages.facebookImage.assetName,
           function: (){
             print('facebook Done');
           },
         ),
         SocialIcon(
-          socialName: AppConstants.twitterImage.assetName,
+          socialName: AppImages.twitterImage.assetName,
           function: (){
             print('twotter Done');
           },
         ),
         SocialIcon(
-          socialName: AppConstants.googleImage.assetName,
+          socialName: AppImages.googleImage.assetName,
           function: (){
             print('google Done');
           },

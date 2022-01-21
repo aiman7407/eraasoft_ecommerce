@@ -34,14 +34,14 @@ class HomeView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  VerticalSpace(value: 2),
+                  const VerticalSpace(value: 2),
                   HomeCategoriesText(text: 'Categories'),
                   CategoriesHomeBuilder(),
-                  VerticalSpace(value: 2),
+                 const  VerticalSpace(value: 2),
                   HomeCategoriesText(text: 'Best Seller'),
-                  VerticalSpace(value: 1),
+                  const VerticalSpace(value: 1),
                   BestSellerBuilder(),
-                  HomeCategoriesText(text: 'All Productts'),
+                  HomeCategoriesText(text: 'All Products'),
                   //all products
                   AllProductsBuilder()
                 ],

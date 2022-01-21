@@ -3,7 +3,6 @@ import 'package:eraasoft_ecommerce/core/components/button.dart';
 import 'package:eraasoft_ecommerce/core/components/space.dart';
 import 'package:eraasoft_ecommerce/core/utils/naviagtion.dart';
 import 'package:eraasoft_ecommerce/views/auth/registeration_view.dart';
-
 import 'package:eraasoft_ecommerce/views/auth/widgets/auth_header.dart';
 import 'package:eraasoft_ecommerce/views/auth/widgets/form.dart';
 import 'package:eraasoft_ecommerce/views/auth/widgets/social_row.dart';
@@ -60,7 +59,7 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 SocialRow(),
                 const VerticalSpace(
-                  value:3,
+                  value:3.5,
                 ),
                 const Text('Don\'t have account? ') ,
                 const VerticalSpace(

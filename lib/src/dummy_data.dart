@@ -3,9 +3,9 @@ import 'package:eraasoft_ecommerce/models/product.dart';
 
 class DummyData {
   static List banners = [
+    'https://image.freepik.com/free-vector/flat-sale-banner-with-photo_23-2149026968.jpg'
     'https://image.freepik.com/free-psd/modern-sales-banner-template_23-2148995448.jpg',
     'https://image.freepik.com/free-vector/flat-sale-banner-with-photo_23-2149026968.jpg',
-    'https://image.freepik.com/free-vector/flat-horizontal-sale-banner-template-with-photo_23-2149000923.jpg'
   ];
 
   static List<Category> categories = [
@@ -16,15 +16,15 @@ class DummyData {
     Category(
         name: 'Phone',
         image:
-            'https://specifications-pro.com/wp-content/uploads/2021/08/iPhone-13-2.jpg'),
+            'https://media.btech.com/media/catalog/product/cache/22b1bed05f04d71c4a848d770186c3c4/i/p/iphone-12-red-select-2020.png'),
     Category(
         name: 'Games',
         image:
-            'https://i5.walmartimages.com/asr/fd596ed4-bf03-4ecb-a3b0-7a9c0067df83.bb8f535c7677cebdd4010741c6476d3a.png'),
+            'https://chronicle.durhamcollege.ca/wp-content/uploads/2021/01/ps5-photo.png'),
     Category(
         name: 'Accessories',
         image:
-            'https://i5.walmartimages.com/asr/fd596ed4-bf03-4ecb-a3b0-7a9c0067df83.bb8f535c7677cebdd4010741c6476d3a.png'),
+            'https://purepng.com/public/uploads/large/purepng.com-black-keyboardkeyboardcomputer-keyboardtypewriter-stylebuttons-or-keyselectronic-switchstyle-keyboardsblack-keyboard-1701528354247idydy.png'),
   ];
 
   static List<Product> bestSeller = [
@@ -43,19 +43,19 @@ class DummyData {
     Product(
         name: 'ROMOSS Power Bank',
         image:
-            'https://www.lenovo.com/medias/lenovo-laptops-ideapad-5i-15-series-front-thumbnail.png?context=bWFzdGVyfHJvb3R8NTUwNjJ8aW1hZ2UvcG5nfGg1Yy9oZWMvMTEwOTQ1OTc0NjgxOTAucG5nfDc4NTkyNmU3NzUyYzkxYzU4OGI2YjQ4MmI1ZTlmMDc3NmVmOTFhYjI1NjBmZmI0YWJkM2UzMTljZmJlZThhZjU',
+            'https://m.media-amazon.com/images/I/71sesDsw95L._AC_SX355_.jpg',
         price: 220,
         isFavorite: true),
     Product(
         name: 'pixma printer MG2540S',
         image:
-            'https://www.lenovo.com/medias/lenovo-laptops-ideapad-5i-15-series-front-thumbnail.png?context=bWFzdGVyfHJvb3R8NTUwNjJ8aW1hZ2UvcG5nfGg1Yy9oZWMvMTEwOTQ1OTc0NjgxOTAucG5nfDc4NTkyNmU3NzUyYzkxYzU4OGI2YjQ4MmI1ZTlmMDc3NmVmOTFhYjI1NjBmZmI0YWJkM2UzMTljZmJlZThhZjU',
+            'https://m.media-amazon.com/images/I/71Nly9vPapL._AC_SY450_.jpg',
         price: 990,
         isFavorite: true),
     Product(
         name: 'pixma printer MG2540S',
         image:
-            'https://www.lenovo.com/medias/lenovo-laptops-ideapad-5i-15-series-front-thumbnail.png?context=bWFzdGVyfHJvb3R8NTUwNjJ8aW1hZ2UvcG5nfGg1Yy9oZWMvMTEwOTQ1OTc0NjgxOTAucG5nfDc4NTkyNmU3NzUyYzkxYzU4OGI2YjQ4MmI1ZTlmMDc3NmVmOTFhYjI1NjBmZmI0YWJkM2UzMTljZmJlZThhZjU',
+            'https://m.media-amazon.com/images/I/71qodgwQQ7S._AC_SY450_.jpg',
         price: 990,
         isFavorite: true),
     Product(

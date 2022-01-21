@@ -1,12 +1,11 @@
+import 'package:eraasoft_ecommerce/blocs/favorite/favorite_cubit.dart';
 import 'package:eraasoft_ecommerce/blocs/login/login_cubit.dart';
+import 'package:eraasoft_ecommerce/blocs/order/order_cubit.dart';
 import 'package:eraasoft_ecommerce/blocs/product/product_cubit.dart';
 import 'package:eraasoft_ecommerce/blocs/register/register_cubit.dart';
 import 'package:eraasoft_ecommerce/src/app_consts.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get/get.dart';
-
 import '../views/onboarding/splash_view.dart';
 
 
@@ -17,46 +16,60 @@ class AppRoot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // logo
-    AppConstants.logoImage = const AssetImage('assets/images/logo.png');
-    precacheImage(AppConstants.logoImage, context);
+    AppImages.logoImage = const AssetImage('assets/images/logo.png');
+    precacheImage(AppImages.logoImage, context);
 // on boarding
-    AppConstants.onboardingImage1 =
+    AppImages.onboardingImage1 =
         const AssetImage('assets/images/onboarding1.png');
-    precacheImage(AppConstants.onboardingImage1, context);
+    precacheImage(AppImages.onboardingImage1, context);
 
-    AppConstants.onboardingImage2 =
+    AppImages.onboardingImage2 =
         const AssetImage('assets/images/onboarding2.png');
-    precacheImage(AppConstants.onboardingImage2, context);
+    precacheImage(AppImages.onboardingImage2, context);
 
-    AppConstants.onboardingImage3 =
+    AppImages.onboardingImage3 =
         const AssetImage('assets/images/onboarding3.png');
-    precacheImage(AppConstants.onboardingImage3, context);
+    precacheImage(AppImages.onboardingImage3, context);
 
     // twitter images
-    AppConstants.twitterImage =
+    AppImages.twitterImage =
     const AssetImage('assets/images/twitter.png');
-    precacheImage(AppConstants.twitterImage, context);
+    precacheImage(AppImages.twitterImage, context);
 
 
-    AppConstants.facebookImage =
+    AppImages.facebookImage =
     const AssetImage('assets/images/facebook.png');
-    precacheImage(AppConstants.facebookImage, context);
+    precacheImage(AppImages.facebookImage, context);
 
 
-    AppConstants.googleImage=
+    AppImages.googleImage=
     const AssetImage('assets/images/google.png');
-    precacheImage(AppConstants.googleImage, context);
+    precacheImage(AppImages.googleImage, context);
 
 
-    AppConstants.aboutUsImage=
+    AppImages.aboutUsImage=
     const AssetImage('assets/images/about_us.png');
-    precacheImage(AppConstants.aboutUsImage, context);
+    precacheImage(AppImages.aboutUsImage, context);
 
 
-    AppConstants.emptyCart=
+    AppImages.emptyCart=
     const AssetImage('assets/images/empty_cart.png');
-    precacheImage(AppConstants.emptyCart, context);
+    precacheImage(AppImages.emptyCart, context);
 
+
+    AppImages.mapsImage=
+    const AssetImage('assets/images/maps.png');
+    precacheImage(AppImages.mapsImage, context);
+
+
+    AppImages.emptyWishlist=
+    const AssetImage('assets/images/empty_wishlist.png');
+    precacheImage(AppImages.emptyWishlist, context);
+
+
+    AppImages.loadingGigs=
+    const AssetImage('assets/gifs/loading.gif');
+    precacheImage(AppImages.loadingGigs, context);
 
 
     return MultiBlocProvider(
@@ -64,8 +77,10 @@ class AppRoot extends StatelessWidget {
         BlocProvider(create: (context)=> RegisterCubit()),
         BlocProvider(create: (context)=> LoginCubit()),
         BlocProvider(create: (context)=> ProductCubit()),
+        BlocProvider(create: (context)=> OrderCubit()),
+        BlocProvider(create: (context)=> FavoriteCubit()),
       ],
-      child: GetMaterialApp(
+      child: MaterialApp(
         theme: ThemeData(
             scaffoldBackgroundColor: Colors.white,
         appBarTheme:const  AppBarTheme(

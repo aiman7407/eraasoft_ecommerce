@@ -1,3 +1,4 @@
+import 'package:eraasoft_ecommerce/core/utils/time_config.dart';
 import 'package:eraasoft_ecommerce/src/app_root.dart';
 import 'package:flutter/material.dart';
 
@@ -10,4 +11,7 @@ Future<void> main() async {
   await CacheHelper.init();
 
   runApp(const AppRoot());
+
+
+
 }

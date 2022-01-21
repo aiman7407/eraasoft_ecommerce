@@ -1,4 +1,5 @@
 import 'package:eraasoft_ecommerce/core/components/button.dart';
+import 'package:eraasoft_ecommerce/core/utils/naviagtion.dart';
 import 'package:eraasoft_ecommerce/core/utils/size_config.dart';
 import 'package:eraasoft_ecommerce/src/app_colors.dart';
 import 'package:eraasoft_ecommerce/views/auth/registeration_view.dart';
@@ -69,10 +70,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
             child: GeneralButton(
                 btnText:'Get Started',
             function: (){
-              Get.to(() => RegistrationView(),
-                duration:const Duration(seconds:3 ) ,
-                transition: Transition.leftToRightWithFade,
-              );
+             customNavigator(context: context, screen: RegistrationView(), finish: false);
             },
             ),
             right: SizeConfig.defaultSize! * 2,

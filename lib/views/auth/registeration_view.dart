@@ -51,9 +51,7 @@ class _RegistrationViewState extends State<RegistrationView> {
                       function: () {
                         print(formKey.currentState!.validate());
                         if (formKey.currentState!.validate()) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('Processing Data')),
-                          );
+
                           customNavigator(
                             screen: HomeView(),
                             context: context,

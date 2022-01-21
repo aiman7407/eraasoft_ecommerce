@@ -31,7 +31,7 @@ class CategoriesHomeBuilder extends StatelessWidget {
                       height: SizeConfig.defaultSize!*9.5,
                     ),
                     Text(DummyData.categories[index].name,
-                      style: TextStyle(
+                      style:const  TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 16
                       ),

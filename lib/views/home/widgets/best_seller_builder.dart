@@ -12,6 +12,7 @@ class BestSellerBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: AppColors.klightSilver,
       height: SizeConfig.defaultSize!*20,
       child: ListView.builder(
           physics:const  BouncingScrollPhysics(),
@@ -20,7 +21,7 @@ class BestSellerBuilder extends StatelessWidget {
           itemCount: DummyData.bestSeller.length,
           itemBuilder: (context,index){
             return Padding(
-              padding: const EdgeInsets.all(5),
+              padding: const EdgeInsets.all(6),
               child: ProductCard(
                  product:  DummyData.bestSeller[index]
               ),

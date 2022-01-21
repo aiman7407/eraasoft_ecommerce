@@ -27,6 +27,14 @@ dependencies:
   dio: ^4.0.4
   shared_preferences: ^2.0.11
   hive: ^2.0.5
+  #utils
+  intl: ^0.17.0
+  fluttertoast: ^8.0.8
+  cached_network_image: ^3.2.0
+
+
+
+
 
 
 
