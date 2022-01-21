@@ -52,12 +52,7 @@ class ProductCard extends StatelessWidget {
                       child: CachedNetworkImage(imageUrl: product.image,
                         height: SizeConfig.defaultSize! * 9.5,
                       fit: BoxFit.cover,
-                        placeholder:(context,_)=>Image.asset(AppImages.loadingGigs.assetName) ,
-                      //   progressIndicatorBuilder: (context, url, downloadProgress) =>
-                      //       CircularProgressIndicator(value: downloadProgress.progress,
-                      //       color: AppColors.kPrimaryColor,
-                      //
-                      //       ),
+                      placeholder: (context,url)=>Image.asset(AppImages.loadingGigs.assetName),
                         errorWidget: (context, url, error) => Icon(Icons.error),
                       ),
                     ),
@@ -66,6 +61,7 @@ class ProductCard extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: Text(product.name,
                           maxLines: 1,
+
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
                               fontWeight: FontWeight.w600,

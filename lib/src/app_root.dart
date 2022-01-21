@@ -71,6 +71,10 @@ class AppRoot extends StatelessWidget {
     const AssetImage('assets/gifs/loading.gif');
     precacheImage(AppImages.loadingGigs, context);
 
+    AppImages.bestsellerGifs=
+    const AssetImage('assets/gifs/bestsellar.gif');
+    precacheImage(AppImages.bestsellerGifs, context);
+
 
     return MultiBlocProvider(
       providers: [

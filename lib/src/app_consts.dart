@@ -14,5 +14,6 @@ class AppImages{
  static late AssetImage emptyWishlist;
  static late AssetImage mapsImage;
  static late AssetImage loadingGigs;
+ static late AssetImage bestsellerGifs;
 
 }

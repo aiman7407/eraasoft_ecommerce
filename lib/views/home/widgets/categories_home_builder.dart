@@ -1,5 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eraasoft_ecommerce/core/utils/size_config.dart';
 import 'package:eraasoft_ecommerce/src/app_colors.dart';
+import 'package:eraasoft_ecommerce/src/app_consts.dart';
 import 'package:eraasoft_ecommerce/src/dummy_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -27,9 +29,13 @@ class CategoriesHomeBuilder extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    Image.network(DummyData.categories[index].image,
+                    CachedNetworkImage(imageUrl: DummyData.categories[index].image,
                       height: SizeConfig.defaultSize!*9.5,
+                      fit: BoxFit.cover,
+                      placeholder: (context,url)=>Image.asset(AppImages.loadingGigs.assetName,),
+                      errorWidget: (context, url, error) => Icon(Icons.error),
                     ),
+
                     Text(DummyData.categories[index].name,
                       style:const  TextStyle(
                         fontWeight: FontWeight.w600,

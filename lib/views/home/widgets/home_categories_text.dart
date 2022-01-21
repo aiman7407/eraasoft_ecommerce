@@ -10,7 +10,7 @@ class HomeCategoriesText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return   Padding(
-      padding: const EdgeInsets.only(left: 8.0,top: 8,right: 8),
+      padding: const EdgeInsets.only(left: 8.0,top: 8,right: 4),
       child: Text(text,
         style:const  TextStyle(
             fontSize: 22,

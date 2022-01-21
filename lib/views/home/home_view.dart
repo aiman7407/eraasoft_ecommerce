@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:eraasoft_ecommerce/core/components/space.dart';
 import 'package:eraasoft_ecommerce/core/utils/naviagtion.dart';
 import 'package:eraasoft_ecommerce/src/app_colors.dart';
+import 'package:eraasoft_ecommerce/src/app_consts.dart';
 import 'package:eraasoft_ecommerce/src/dummy_data.dart';
 import 'package:eraasoft_ecommerce/views/home/widgets/all_products_builder.dart';
 import 'package:eraasoft_ecommerce/views/home/widgets/banner_builder.dart';
@@ -38,7 +39,17 @@ class HomeView extends StatelessWidget {
                   HomeCategoriesText(text: 'Categories'),
                   CategoriesHomeBuilder(),
                  const  VerticalSpace(value: 2),
-                  HomeCategoriesText(text: 'Best Seller'),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      HomeCategoriesText(text: 'Best Seller'),
+                      // Expanded(
+                      //   child: Image.asset(AppImages.bestsellerGifs.assetName,
+                      //
+                      //   ),
+                     // ),
+                    ],
+                  ),
                   const VerticalSpace(value: 1),
                   BestSellerBuilder(),
                   HomeCategoriesText(text: 'All Products'),
