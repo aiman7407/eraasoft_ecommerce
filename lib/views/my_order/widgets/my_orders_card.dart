@@ -35,7 +35,7 @@ class MyOrdersCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                Text(order.address,
+                Text(order.user!.address!,
                 style: TextStyle(
                   fontSize: 12
                 ),

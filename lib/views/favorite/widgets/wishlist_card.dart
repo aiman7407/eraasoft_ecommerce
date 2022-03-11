@@ -5,8 +5,8 @@ import 'package:eraasoft_ecommerce/blocs/product/product_cubit.dart';
 import 'package:eraasoft_ecommerce/core/toast/toast.dart';
 import 'package:eraasoft_ecommerce/core/utils/naviagtion.dart';
 import 'package:eraasoft_ecommerce/core/utils/size_config.dart';
-import 'package:eraasoft_ecommerce/enums/toast_state.dart';
-import 'package:eraasoft_ecommerce/models/product.dart';
+import 'package:eraasoft_ecommerce/enums/toast_state_enum.dart';
+import 'package:eraasoft_ecommerce/models/old_product.dart';
 import 'package:eraasoft_ecommerce/src/app_colors.dart';
 import 'package:eraasoft_ecommerce/src/dummy_data.dart';
 import 'package:eraasoft_ecommerce/views/single_product/single_product_view.dart';
@@ -16,7 +16,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProductCardFavorite extends StatelessWidget {
 
-  final Product product;
+  final OldProduct product;
 
   ProductCardFavorite({required this.product});
 
@@ -36,9 +36,9 @@ class ProductCardFavorite extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () {
-                    customNavigator(context: context,
+                    AppNavigator.customNavigator(context: context,
                         screen: SingleProductView(product: product,),
-                        finish: true);
+                        finish: false);
                   },
                   child: Image.network(product.image,
                     height: SizeConfig.defaultSize! * 9.5,

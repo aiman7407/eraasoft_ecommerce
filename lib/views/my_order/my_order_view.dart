@@ -23,7 +23,7 @@ class MyOrderView extends StatelessWidget {
               children: [
                 IconButton(icon: Icon(Icons.home),
                 onPressed: (){
-                  customNavigator(context: context, screen: HomeView(), finish: false);
+                  AppNavigator.customNavigator(context: context, screen: HomeView(), finish: true);
                 },
                 ),
                 Text('My orders'),

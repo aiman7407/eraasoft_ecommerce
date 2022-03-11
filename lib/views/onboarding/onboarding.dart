@@ -1,10 +1,11 @@
 import 'package:eraasoft_ecommerce/core/components/button.dart';
 import 'package:eraasoft_ecommerce/core/utils/naviagtion.dart';
 import 'package:eraasoft_ecommerce/core/utils/size_config.dart';
+import 'package:eraasoft_ecommerce/services/cache_helper/cache_helper.dart';
+import 'package:eraasoft_ecommerce/services/cache_helper/cache_keys.dart';
 import 'package:eraasoft_ecommerce/src/app_colors.dart';
 import 'package:eraasoft_ecommerce/views/auth/registeration_view.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import 'widgets/custom_indicator.dart';
 import 'widgets/page_view.dart';
@@ -46,16 +47,21 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                 ? (pageController?.page == 2 ? false : true)
                 : true,
             child: Positioned(
-              child: Container(
-                padding: const EdgeInsets.all(10),
-                decoration: const BoxDecoration(
-                  color: AppColors.kPrimaryRedColor
-                ),
-                child: const Text('Skip',
-                style: TextStyle(fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                  color: Colors.white
-                ),
+              child: GestureDetector(
+                onTap: (){
+                  onSubmit();
+                },
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: const BoxDecoration(
+                    color: AppColors.kPrimaryRedColor
+                  ),
+                  child: const Text('Skip',
+                  style: TextStyle(fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                    color: Colors.white
+                  ),
+                  ),
                 ),
               ),
               top: SizeConfig.defaultSize! * 10,
@@ -70,7 +76,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
             child: GeneralButton(
                 btnText:'Get Started',
             function: (){
-             customNavigator(context: context, screen: RegistrationView(), finish: false);
+              onSubmit();
             },
             ),
             right: SizeConfig.defaultSize! * 2,
@@ -86,5 +92,14 @@ class _OnBoardingViewState extends State<OnBoardingView> {
   void dispose() {
     pageController!.dispose();
     super.dispose();
+  }
+
+  onSubmit(){
+    CacheHelper.saveData(key: CacheKey.ONBOARDINGSTATE, value: true).then((value) {
+      if(value) {
+        AppNavigator.customNavigator(context: context, screen: RegistrationView(), finish: true);
+      }
+    });
+
   }
 }

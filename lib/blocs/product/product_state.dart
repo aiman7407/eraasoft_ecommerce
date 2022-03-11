@@ -10,3 +10,8 @@ class ProductAddToCartState extends ProductState {}
 class ProductRemoveFromCartState extends ProductState {}
 
 
+///Products by categories
+class ProductByCategoriesSuccessState extends ProductState {}
+class ProductByCategoriesErrorState extends ProductState {}
+
+

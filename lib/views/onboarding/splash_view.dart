@@ -1,13 +1,16 @@
 import 'package:eraasoft_ecommerce/core/utils/naviagtion.dart';
 import 'package:eraasoft_ecommerce/core/utils/size_config.dart';
 import 'package:eraasoft_ecommerce/src/app_consts.dart';
-import 'package:eraasoft_ecommerce/views/home/home_view.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import 'onboarding.dart';
 
 class SplashView extends StatefulWidget {
+
+  final startWidget;
+
+  SplashView({this.startWidget});
+
   @override
   State<SplashView> createState() => _SplashViewState();
 }
@@ -21,15 +24,22 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
+    /// add only one time
     SizeConfig.init(context);
     return Scaffold(
-      body: Center(child: Image.asset(AppImages.logoImage.assetName)),
+      body: Container(
+          /// the usage of the package
+        height: SizeConfig.defaultSize!*10,
+          child: Center(child: Image.asset(AppImages.logoImage.assetName))),
     );
   }
 
+  ///splash view
   void goToNextView(context) {
-    Future.delayed(const Duration(seconds: 3), () {
-      customNavigator(context: context, screen: OnBoardingView(), finish: false);
+    Future.delayed(Duration(),(){});
+    Future.delayed(const Duration(seconds: 3),
+            () {
+
     });
   }
 }

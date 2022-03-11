@@ -1,6 +1,7 @@
 import 'package:buildcondition/buildcondition.dart';
 import 'package:eraasoft_ecommerce/blocs/favorite/favorite_cubit.dart';
 import 'package:eraasoft_ecommerce/blocs/favorite/favorite_cubit.dart';
+import 'package:eraasoft_ecommerce/core/components/old_product_card.dart';
 import 'package:eraasoft_ecommerce/core/components/product_card.dart';
 import 'package:eraasoft_ecommerce/src/app_consts.dart';
 import 'package:eraasoft_ecommerce/views/favorite/widgets/wishlist_card.dart';
@@ -36,7 +37,7 @@ class FavoriteView extends StatelessWidget {
                      physics: const BouncingScrollPhysics(),
                      itemCount: cubit.favoriteProducts.length,
                      itemBuilder: (context,index){
-                   return ProductCardFavorite(product: cubit.favoriteProducts[index]);
+                   return ProductCard(product: cubit.favoriteProducts[index]);
                      }),
                )
               ],

@@ -1,14 +1,17 @@
 import 'package:buildcondition/buildcondition.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eraasoft_ecommerce/blocs/order/order_cubit.dart';
 import 'package:eraasoft_ecommerce/blocs/product/product_cubit.dart';
+import 'package:eraasoft_ecommerce/blocs/user/user_cubit.dart';
 import 'package:eraasoft_ecommerce/core/components/button.dart';
 import 'package:eraasoft_ecommerce/core/toast/toast.dart';
 import 'package:eraasoft_ecommerce/core/utils/naviagtion.dart';
 import 'package:eraasoft_ecommerce/core/utils/size_config.dart';
 import 'package:eraasoft_ecommerce/core/utils/time_config.dart';
 import 'package:eraasoft_ecommerce/enums/order_state_enum.dart';
-import 'package:eraasoft_ecommerce/enums/toast_state.dart';
+import 'package:eraasoft_ecommerce/enums/toast_state_enum.dart';
 import 'package:eraasoft_ecommerce/models/order.dart';
+import 'package:eraasoft_ecommerce/models/auth.dart';
 import 'package:eraasoft_ecommerce/models/user.dart';
 import 'package:eraasoft_ecommerce/src/app_colors.dart';
 import 'package:eraasoft_ecommerce/src/app_consts.dart';
@@ -36,7 +39,7 @@ class CartView extends StatelessWidget {
           var productCubit = ProductCubit.get(context);
 
           return BuildCondition(
-            condition: productCubit.cart.isNotEmpty,
+            condition: productCubit.newCart.isNotEmpty,
             fallback: (context) =>
                 Center(child: Image.asset(AppImages.emptyCart.assetName)),
             builder: (context) {
@@ -45,39 +48,45 @@ class CartView extends StatelessWidget {
                   Expanded(
                     child: ListView.builder(
                       physics: const BouncingScrollPhysics(),
-                      itemCount: productCubit.cart.length,
+                      itemCount: productCubit.newCart.length,
                       itemBuilder: (context, index) {
                         return Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 8.0),
                           child: Stack(
                             children: [
-
-                              Card(
-
-                                elevation: 5,
-                                child: Container(
-                                  width: double.infinity,
-                                  height: SizeConfig.defaultSize! * 10,
-                                  child: Row(
-                                    children: [
-                                      Image.network(
-                                          productCubit.cart[index].image),
-                                      Column(
-                                        children: [
-                                          Text(productCubit.cart[index].name,
-                                            style: TextStyle(
-                                                fontSize: 17
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    ],
+                              Padding(
+                                padding: const EdgeInsets.all(4),
+                                child: Card(
+                                  elevation: 5,
+                                  child: Container(
+                                    padding: EdgeInsets.all(4),
+                                    width: double.infinity,
+                                    height: SizeConfig.defaultSize! * 10,
+                                    child: Row(
+                                      children: [
+                                        CachedNetworkImage(
+                                          imageUrl: productCubit.newCart[index].image.toString(),
+                                          fit: BoxFit.cover,
+                                          placeholder: (context,url)=>Image.asset(AppImages.loadingGigs.assetName),
+                                          errorWidget: (context, url, error) => const Icon(Icons.error),
+                                        ),
+                                        Column(
+                                          children: [
+                                            Text(productCubit.newCart[index].name.toString(),
+                                              style: TextStyle(
+                                                  fontSize: 17
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
                               GestureDetector(
                                 onTap: () {
-                                  productCubit.removeFromCart(index);
+                                  productCubit.removeFromCartNew(index);
                                   ToastConfig.showToast(msg: 'Product Has been removed Successfully from your cart',
                                       toastStates: ToastStates.Success);
                                 },
@@ -114,7 +123,7 @@ class CartView extends StatelessWidget {
 
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text(productCubit.getTotal().toString() + ' EGP',
+                          child: Text(productCubit.getNewTotal().toString() + ' EGP',
                             style: const TextStyle(
                                 fontSize: 20,
                                 color: AppColors.kPrimaryColor
@@ -128,20 +137,19 @@ class CartView extends StatelessWidget {
                     listener: (context, state) {},
                     builder: (context, state) {
                       var cubit = OrderCubit.get(context);
+                      var user= UserCubit.get(context).userHub;
                       return GeneralButton(btnText: 'Cheakout', function: ()
                       {
-                        cubit.addOrder(Order(total: productCubit.total,
+                        cubit.addOrder(
+                            Order(
+                              total: productCubit.newTotal,
                             state: OrderStateEnum.OnTheWay,
                             date: TimeConfig.getCurrentTime(),
-                            user: User(
-                                id: '234',
-                                name: 'aiman',
-                                token: '34'
-                            ),
-                            address: 'user did\'t add address yet'
+                            user: user!.data!.profile,
                         ));
                         productCubit.cart.clear();
-                        customNavigator(context: context, screen: OrderDetailsView(), finish: true);
+                       AppNavigator.customNavigator(context: context,
+                           screen: OrderDetailsView(), finish: false);
                       });
                     },
                   )

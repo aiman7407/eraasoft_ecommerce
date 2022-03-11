@@ -25,7 +25,8 @@ class AboutUsView extends StatelessWidget {
         child: Material(
           elevation:30,
           borderRadius: const BorderRadius.only(
-            bottomRight: Radius.circular(100)
+            bottomRight: Radius.circular(20),
+            bottomLeft:  Radius.circular(20),
           ) ,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,

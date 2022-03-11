@@ -7,6 +7,7 @@ class RegsiterForm extends StatelessWidget {
   final nameController;
   final mailController;
   final passController;
+  final confirmPassController;
   final isRegister;
 
   RegsiterForm(
@@ -14,6 +15,7 @@ class RegsiterForm extends StatelessWidget {
       this.nameController,
       this.mailController,
       this.passController,
+        this.confirmPassController,
       this.isRegister = true});
 
   @override
@@ -47,6 +49,16 @@ class RegsiterForm extends StatelessWidget {
               controller: passController,
               isObsecure: true,
             ),
+            const VerticalSpace(value: 3),
+            isRegister
+                ? CustomTextField(
+              fieldName: 'Password',
+              hintText: 'Confirm Password',
+              iconData: Icons.lock,
+              controller: confirmPassController,
+              isObsecure: true,
+            ):Container(),
+
           ],
         ),
       ),

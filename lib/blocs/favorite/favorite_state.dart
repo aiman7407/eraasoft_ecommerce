@@ -5,3 +5,4 @@ abstract class FavoriteState {}
 
 class FavoriteInitial extends FavoriteState {}
 class FavoriteAddToFavoriteState extends FavoriteState {}
+class FavoriteRemoveFromFavoriteState extends FavoriteState {}

@@ -1,6 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:eraasoft_ecommerce/core/utils/size_config.dart';
+import 'package:eraasoft_ecommerce/src/app_colors.dart';
+import 'package:eraasoft_ecommerce/src/app_consts.dart';
 import 'package:flutter/material.dart';
 
 class BannerBuilder extends StatelessWidget {
@@ -13,12 +16,24 @@ class BannerBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return  CarouselSlider(
         items: images
-            .map<Widget>((e) => Image(
-          image: NetworkImage(e),
+            .map<Widget>((e) =>
+          //   Image(
+          // image: NetworkImage(e),
+          // width: double.infinity,
+          // height: SizeConfig.defaultSize!*17,
+          // fit: BoxFit.fill,),
+
+        CachedNetworkImage(imageUrl: e,
           width: double.infinity,
           height: SizeConfig.defaultSize!*17,
-          fit: BoxFit.fill,
-        ))
+          fit: BoxFit.cover,
+          placeholder: (context,url)=> LinearProgressIndicator(
+            color: AppColors.kPrimaryColor,
+          ),
+              //Image.asset(AppImages.loadingGigs.assetName),
+          errorWidget: (context, url, error) => Icon(Icons.error),
+        )
+        )
             .toList(),
         options: CarouselOptions(
             height: SizeConfig.defaultSize!*17,

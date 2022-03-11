@@ -4,7 +4,7 @@ import 'package:eraasoft_ecommerce/core/components/space.dart';
 import 'package:eraasoft_ecommerce/core/toast/toast.dart';
 import 'package:eraasoft_ecommerce/core/utils/naviagtion.dart';
 import 'package:eraasoft_ecommerce/core/utils/size_config.dart';
-import 'package:eraasoft_ecommerce/enums/toast_state.dart';
+import 'package:eraasoft_ecommerce/enums/toast_state_enum.dart';
 import 'package:eraasoft_ecommerce/models/order.dart';
 import 'package:eraasoft_ecommerce/src/app_colors.dart';
 import 'package:eraasoft_ecommerce/src/app_consts.dart';
@@ -12,7 +12,6 @@ import 'package:eraasoft_ecommerce/views/my_order/my_order_view.dart';
 import 'package:eraasoft_ecommerce/views/order_details/widgets/order_details_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get/get_rx/src/rx_types/rx_types.dart';
 
 class OrderDetailsView extends StatelessWidget {
   OrderDetailsView({Key? key}) : super(key: key);
@@ -33,8 +32,8 @@ class OrderDetailsView extends StatelessWidget {
             children: [
 
               OrderDetailsCard(value: lastOrder.date ,lable:'Order date' ,),
-              OrderDetailsCard(value: lastOrder.user.name ,lable:'Delegate name' ,),
-              OrderDetailsCard(value: lastOrder.address ,lable:'Address' ,),
+              OrderDetailsCard(value: lastOrder.user!.name ,lable:'Delegate name' ,),
+              OrderDetailsCard(value: lastOrder.user!.address ,lable:'Address' ,),
               Image.asset(AppImages.mapsImage.assetName,
                 height: SizeConfig.defaultSize!*15,
                 width: double.infinity,
@@ -67,7 +66,7 @@ class OrderDetailsView extends StatelessWidget {
               ),
               VerticalSpace(value: SizeConfig.defaultSize!*1.31),
               GeneralButton(btnText: 'Submit order', function: (){
-                customNavigator(context: context, screen: MyOrderView(), finish: false);
+                AppNavigator.customNavigator(context: context, screen: MyOrderView(), finish: true);
                 ToastConfig.showToast(msg: 'we are processing your order', toastStates: ToastStates.Success);
 
               })

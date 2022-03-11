@@ -1,5 +1,5 @@
 import 'package:eraasoft_ecommerce/core/components/button.dart';
-import 'package:eraasoft_ecommerce/core/components/product_card.dart';
+import 'package:eraasoft_ecommerce/core/components/old_product_card.dart';
 import 'package:eraasoft_ecommerce/core/utils/size_config.dart';
 import 'package:eraasoft_ecommerce/src/app_colors.dart';
 import 'package:eraasoft_ecommerce/src/dummy_data.dart';
@@ -13,7 +13,7 @@ class BestSellerBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: AppColors.klightSilver,
-      height: SizeConfig.defaultSize!*20,
+      height: SizeConfig.defaultSize!*21,
       child: ListView.builder(
           physics:const  BouncingScrollPhysics(),
           shrinkWrap: true,
@@ -22,7 +22,7 @@ class BestSellerBuilder extends StatelessWidget {
           itemBuilder: (context,index){
             return Padding(
               padding: const EdgeInsets.all(6),
-              child: ProductCard(
+              child: OldProductCard(
                  product:  DummyData.bestSeller[index]
               ),
             );

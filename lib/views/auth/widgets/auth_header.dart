@@ -16,7 +16,7 @@ class AuthHeader extends StatelessWidget {
         Image.asset(
           AppImages.logoImage.assetName,
           width: double.infinity,
-          height:SizeConfig.defaultSize!*26.5 ,
+          height:SizeConfig.defaultSize!*20 ,
         ),
          Text(
           isRegister?

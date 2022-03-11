@@ -5,19 +5,19 @@ import 'package:eraasoft_ecommerce/core/toast/toast.dart';
 import 'package:eraasoft_ecommerce/core/utils/naviagtion.dart';
 import 'package:eraasoft_ecommerce/core/utils/size_config.dart';
 import 'package:eraasoft_ecommerce/enums/toast_state_enum.dart';
-import 'package:eraasoft_ecommerce/models/product.dart';
+import 'package:eraasoft_ecommerce/models/old_product.dart';
 import 'package:eraasoft_ecommerce/src/app_colors.dart';
 import 'package:eraasoft_ecommerce/src/app_consts.dart';
-import 'package:eraasoft_ecommerce/views/home/home_view.dart';
+import 'package:eraasoft_ecommerce/views/single_product/single_product_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 
-class ProductCard extends StatelessWidget {
+class OldProductCard extends StatelessWidget {
 
-  final Product product;
+  final OldProduct product;
 
-  ProductCard({required this.product});
+  OldProductCard({required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +38,7 @@ class ProductCard extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         AppNavigator.customNavigator(context: context,
-
-                            screen: HomeView(),
-                            //SingleProductView(product: product,
-                            //),
+                            screen: SingleProductView(product: product,),
                             finish: false);
                       },
                       child: Padding(
@@ -49,10 +46,10 @@ class ProductCard extends StatelessWidget {
                         child: CachedNetworkImage(
                           imageUrl: 'https://chronicle.durhamcollege.ca/wp-content/uploads/2021/01/ps5-photo.png',
 
-                          //product.image,
+                        //product.image,
                           height: SizeConfig.defaultSize! * 9.5,
-                          fit: BoxFit.cover,
-                          placeholder: (context,url)=>Image.asset(AppImages.loadingGigs.assetName),
+                        fit: BoxFit.cover,
+                        placeholder: (context,url)=>Image.asset(AppImages.loadingGigs.assetName),
                           errorWidget: (context, url, error) => Icon(Icons.error),
                         ),
                       ),
@@ -61,7 +58,7 @@ class ProductCard extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 4,
                         ),
-                        child: Text(product.name.toString(),
+                        child: Text(product.name,
                           textAlign: TextAlign.center,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
@@ -81,7 +78,7 @@ class ProductCard extends StatelessWidget {
                         //ToDo: add to cart animation
                         ToastConfig.showToast(msg: 'Added To cart',
                             toastStates: ToastStates.Success);
-                       productCubit.addToCartNew(product);
+                        productCubit.addToCart(product);
                       },
                       child: Container(
                         height: 30,
@@ -110,29 +107,27 @@ class ProductCard extends StatelessWidget {
               },
               builder: (context, state) {
                 var favoriteCubit=FavoriteCubit.get(context);
-                return IconButton(
-                  icon:  Icon(
-                     product.isFavorite?
-                     Icons.favorite:
-                    Icons.favorite_border,
-                    color: AppColors.kPrimaryRedColor,
-                  ),
-                  onPressed: () {
-
-                    if(!product.isFavorite)
-                    {
-                      ToastConfig.showToast(
-                          msg: 'Added to WishList',
-                          toastStates: ToastStates.Success);
-                     favoriteCubit.addToFavorite(product);
-                    }
-                    else {
-                      ToastConfig.showToast(
-                          msg: 'Removed  From wishlist',
-                          toastStates: ToastStates.Success);
-                      favoriteCubit.removeFromFavorite(product);
-                    }
-                  },);
+                return Text('');
+                // return IconButton(
+                //   icon:  Icon(
+                //     product.isFavorite?
+                //    Icons.favorite:Icons.favorite_border,
+                //     color: AppColors.kPrimaryRedColor,
+                //   ),
+                //   onPressed: () {
+                //    if(!product.isFavorite) {
+                //       ToastConfig.showToast(
+                //           msg: 'Added to WishList',
+                //           toastStates: ToastStates.Success);
+                //       favoriteCubit.addToFavorite(product);
+                //     }
+                //    else {
+                //      ToastConfig.showToast(
+                //          msg: 'Removed  From wishlist',
+                //          toastStates: ToastStates.Success);
+                //      favoriteCubit.removeFromFavorite(product);
+                //    }
+                //   },);
               },
             ),
           ],

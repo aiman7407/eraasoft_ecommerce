@@ -2,74 +2,56 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 
 class DioHelper {
-
   static late Dio dio;
 
+  static init() {
+    String baseUrl = 'https://www.bazoka.eraasoft.com/api/';
 
-  static init(){
-
-    String baseUrl='https://student.valuxapps.com/api/';
-
-    dio=Dio(
-        BaseOptions(
-            baseUrl: baseUrl,
-            receiveDataWhenStatusError: true,
-            headers: {
-              'Content-Type':'application/json',
-            }
-        )
-    );
+    dio = Dio(BaseOptions(
+        baseUrl: baseUrl,
+        receiveDataWhenStatusError: true,
+        responseType: ResponseType.plain,
+        headers: {
+          'Content-Type': 'application/json',
+        }));
   }
 
   static Future<Response> getData({
     required String url,
-    Map<String,dynamic>? query,
-    String lang='en',
+    Map<String, dynamic>? query,
     String? token,
-  })
-  async {
-    dio.options.headers= {
-      'lang':lang,
-      'Content-Type':'application/json',
-      'authorization':token
+  }) async {
+    dio.options.headers = {
+      'Content-Type': 'application/json',
+      'authorization': 'Bearer $token',
+
+
     };
-    return await dio.get(url,queryParameters:query );
+    return await dio.get(url, queryParameters: query);
   }
 
-
-  static Future<Response>postData({
+  static Future<Response> postData({
     required String url,
-    Map<String,dynamic>? query,
-    required Map<String,dynamic> data,
-    String lang='en',
+    Map<String, dynamic>? query,
+    required Map<String, dynamic> data,
     String? token,
-  })
-  {
-    dio.options.headers= {
-      'lang':lang,
-      'authorization':token
-
+  }) {
+    dio.options.headers = {
+      'Authorization': 'Bearer $token',
     };
-    return dio.post(url,queryParameters: query,data:data );
+    return dio.post(url, queryParameters: query, data: data);
   }
 
-
-  static Future<Response>putData({
+  static Future<Response> putData({
     required String url,
-    Map<String,dynamic>? query,
-    required Map<String,dynamic> data,
-    String lang='en',
-     String? token,
-  })
-  {
-    dio.options.headers= {
-      'lang':lang,
-      'authorization':token
-
+    Map<String, dynamic>? query,
+    required Map<String, dynamic> data,
+    String? token,
+  }) {
+    dio.options.headers = {
+      'Content-Type': 'application/json',
+      'authorization': 'Bearer $token',
     };
-    return dio.put(url,queryParameters: query,data:data );
+    return dio.post(url, queryParameters: query, data: data);
   }
-
 }
-
-

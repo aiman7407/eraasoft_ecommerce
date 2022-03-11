@@ -1,8 +1,10 @@
+import 'package:eraasoft_ecommerce/blocs/category/category_cubit.dart';
 import 'package:eraasoft_ecommerce/blocs/favorite/favorite_cubit.dart';
 import 'package:eraasoft_ecommerce/blocs/login/login_cubit.dart';
 import 'package:eraasoft_ecommerce/blocs/order/order_cubit.dart';
 import 'package:eraasoft_ecommerce/blocs/product/product_cubit.dart';
 import 'package:eraasoft_ecommerce/blocs/register/register_cubit.dart';
+import 'package:eraasoft_ecommerce/blocs/user/user_cubit.dart';
 import 'package:eraasoft_ecommerce/src/app_consts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,7 +13,10 @@ import '../views/onboarding/splash_view.dart';
 
 //TODO: implement Content of order and wish list and contact us My orders ,
 class AppRoot extends StatelessWidget {
-  const AppRoot({Key? key}) : super(key: key);
+final startWidget;
+
+
+AppRoot({this.startWidget});
 
   @override
   Widget build(BuildContext context) {
@@ -83,6 +88,8 @@ class AppRoot extends StatelessWidget {
         BlocProvider(create: (context)=> ProductCubit()),
         BlocProvider(create: (context)=> OrderCubit()),
         BlocProvider(create: (context)=> FavoriteCubit()),
+        BlocProvider(create: (context)=> CategoryCubit()),
+        BlocProvider(create: (context)=> UserCubit()),
       ],
       child: MaterialApp(
         theme: ThemeData(
@@ -102,7 +109,7 @@ class AppRoot extends StatelessWidget {
           )
         )
         ),
-        home: SplashView(),
+        home: SplashView(startWidget: startWidget,),
       ),
     );
   }

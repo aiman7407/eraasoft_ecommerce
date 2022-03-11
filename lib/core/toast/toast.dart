@@ -1,4 +1,4 @@
-import 'package:eraasoft_ecommerce/enums/toast_state.dart';
+import 'package:eraasoft_ecommerce/enums/toast_state_enum.dart';
 import 'package:eraasoft_ecommerce/src/app_colors.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';

@@ -1,11 +1,11 @@
-class UserHub {
+class AuthHub {
   int? status;
   String? message;
   Data? data;
 
-  UserHub({this.status, this.message, this.data});
+  AuthHub({this.status, this.message, this.data});
 
-  UserHub.fromJson(Map<String, dynamic> json) {
+  AuthHub.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     message = json['message'];
     data = json['data'] != null ? new Data.fromJson(json['data']) : null;
@@ -23,57 +23,53 @@ class UserHub {
 }
 
 class Data {
-  Profile? profile;
+  User? user;
+  String? accessToken;
+  String? tokenType;
 
-  Data({this.profile});
+  Data({this.user, this.accessToken, this.tokenType});
 
   Data.fromJson(Map<String, dynamic> json) {
-    profile =
-    json['profile'] != null ? new Profile.fromJson(json['profile']) : null;
+    user = json['user'] != null ? new User.fromJson(json['user']) : null;
+    accessToken = json['access_token'];
+    tokenType = json['token_type'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.profile != null) {
-      data['profile'] = this.profile!.toJson();
+    if (this.user != null) {
+      data['user'] = this.user!.toJson();
     }
+    data['access_token'] = this.accessToken;
+    data['token_type'] = this.tokenType;
     return data;
   }
 }
 
-class Profile {
+class User {
   String? name;
   String? email;
-  String? address;
-  String? phone;
-  String? image='';
-  Null? emailVerified;
+  String? updatedAt;
+  String? createdAt;
+  int? id;
 
-  Profile(
-      {this.name,
-        this.email,
-        this.address,
-        this.phone,
-        this.image,
-        this.emailVerified});
+  User({this.name, this.email, this.updatedAt, this.createdAt, this.id});
 
-  Profile.fromJson(Map<String, dynamic> json) {
+  User.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     email = json['email'];
-    address = json['address'];
-    phone = json['phone'];
-    image = json['image'];
-    emailVerified = json['email verified'];
+    updatedAt = json['updated_at'];
+    createdAt = json['created_at'];
+    id = json['id'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['name'] = this.name;
     data['email'] = this.email;
-    data['address'] = this.address;
-    data['phone'] = this.phone;
-    data['image'] = this.image;
-    data['email verified'] = this.emailVerified;
+    data['updated_at'] = this.updatedAt;
+    data['created_at'] = this.createdAt;
+    data['id'] = this.id;
     return data;
   }
 }

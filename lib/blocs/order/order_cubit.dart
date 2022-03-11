@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:eraasoft_ecommerce/enums/order_state_enum.dart';
 import 'package:eraasoft_ecommerce/models/order.dart';
+import 'package:eraasoft_ecommerce/models/auth.dart';
 import 'package:eraasoft_ecommerce/models/user.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
@@ -16,21 +17,19 @@ class OrderCubit extends Cubit<OrderState> {
     Order(
         total: 134, state: OrderStateEnum.Canceled,
         date: '17 Nov 2021',
-        user:User(
-          id:'1' ,
-          token:'passtoken' ,
+        user:Profile(
+        address: '140 El Merghany Street, Heliopolis' ,
           name: 'Aiman',
         ),
-        address:'140 El Merghany Street, Heliopolis' ),
+    ),
     Order(
         total: 2072, state: OrderStateEnum.Received,
         date: '19 Dec 2022',
-        user:User(
-          id:'1' ,
-          token:'passtoken' ,
+        user:Profile(
+          address: '190 El Merghany Street, Heliopolis' ,
           name: 'Aiman',
         ),
-        address:'190 El Merghany Street, Heliopolis' ),
+        ),
   ];
 
   addOrder(Order order)

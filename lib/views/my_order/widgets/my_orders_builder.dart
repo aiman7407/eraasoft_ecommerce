@@ -18,7 +18,7 @@ MyOrderBuilder({required this.myOrders});
         return Column(
           children: [
             MyOrdersCard(order: myOrders[index]),
-            Divider(height: 20,
+          const   Divider(height: 20,
             thickness: 2,)
           ],
         );

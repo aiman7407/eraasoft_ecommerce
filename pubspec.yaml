@@ -14,6 +14,7 @@ dependencies:
     sdk: flutter
 
 
+
   cupertino_icons: ^1.0.2
   #ui_enhancment
   buildcondition: ^0.0.4
@@ -22,7 +23,6 @@ dependencies:
   #bloc
   flutter_bloc: ^8.0.1
   bloc: ^8.0.2
-  get: ^4.6.1
   #service
   dio: ^4.0.4
   shared_preferences: ^2.0.11

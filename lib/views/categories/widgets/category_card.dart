@@ -1,4 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eraasoft_ecommerce/core/utils/size_config.dart';
+import 'package:eraasoft_ecommerce/src/app_consts.dart';
 import 'package:flutter/material.dart';
 
 class CategoryCard extends StatelessWidget {
@@ -20,9 +22,14 @@ class CategoryCard extends StatelessWidget {
           children: [
             Expanded(
               flex: 5,
-              child: Image.network(image,
+              child: CachedNetworkImage(imageUrl: image,
+                height: SizeConfig.defaultSize! * 9.5,
+                fit: BoxFit.cover,
+                placeholder: (context,url)=>Image.asset(AppImages.loadingGigs.assetName),
+                errorWidget: (context, url, error) => Icon(Icons.error),
               ),
-            ),
+              ),
+
             Expanded(
               flex: 1,
               child: Text(text,
